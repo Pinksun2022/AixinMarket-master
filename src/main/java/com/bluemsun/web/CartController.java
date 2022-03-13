@@ -91,7 +91,7 @@ public class CartController {
         return map;
     }
 
-    @RequestMapping(value = "/getItems",method = RequestMethod.POST)
+    @RequestMapping(value = "/getItems",method = RequestMethod.GET)
     public Map getItems(HttpServletRequest request, @RequestBody GoodsItem goodsItem){
         Map map = new HashMap();
         List<CartItemDto> list = new ArrayList<>();
