@@ -49,6 +49,8 @@ public class CartServiceImpl implements CartService {
                 cartItemDao.insertItem(cartItemDto);
                 flag = 1;
             }else{
+                CartItemDto cartItemDto = temp.getCartItemDtoList().get(0);
+                cartItemDto.setGoodsNum(cartItemDto.getGoodsNum()+goodsItem.getGoodsNum());
                 flag = 2;
             }
         }catch (Exception e){

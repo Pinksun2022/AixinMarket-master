@@ -43,7 +43,7 @@ public class CartController {
                 }
                 if (flag == 2){
                     map.put("code","2004");
-                    map.put("msg","已添加购物车");
+                    map.put("msg","已添加至购物车");
                 }
                 if (flag == 3){
                     map.put("code","2004");
