@@ -58,6 +58,13 @@ public class CrossOriginFilter implements Filter {
            //设置除了简单响应首部以外，需要暴露给外部的其他首部
            response.setHeader("Access-Control-Expose-Headers", "Authorization");
 
+        //如果是OPTIONS请求 直接放行
+        String method = request.getMethod();
+        if ("OPTIONS".equals(method)) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         filterChain.doFilter(request, response);
     }
 

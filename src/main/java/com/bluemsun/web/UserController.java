@@ -104,7 +104,11 @@ public class UserController {
             return resMap;
         }
         String contact = HttpRequestUtil.getString(reqMap,"contact");
+        // add
+        Integer campus = HttpRequestUtil.getInt(reqMap,"campus");
         student.setContact(contact);
+        // add
+        student.setCampus(campus);
         Boolean flag = userService.updateStudentInfo(student);
         if (!flag){
             resMap.put("code",2004);
@@ -200,6 +204,7 @@ public class UserController {
         }
     }
 
+    // 第一次登录
     @RequestMapping(value = "/updateStudentInfo",method = RequestMethod.POST)
     public Map updateStudentInfoFirst(HttpServletRequest request,@RequestBody Map<String,String> reqMap){
         Map map = new HashMap();
@@ -209,7 +214,7 @@ public class UserController {
         Integer campus = HttpRequestUtil.getInt(reqMap,"campus");
         String username = HttpRequestUtil.getString(reqMap,"username");
         String password = HttpRequestUtil.getString(reqMap,"password");
-        if (contact==null||username==null||password==null||campus==-1){
+        if (contact==null||username==null||campus==-1){
             map.put("code",2001);
             map.put("msg","空数据");
             return map;
