@@ -50,7 +50,8 @@ public class CartServiceImpl implements CartService {
                 flag = 1;
             }else{
                 CartItemDto cartItemDto = temp.getCartItemDtoList().get(0);
-                cartItemDto.setGoodsNum(cartItemDto.getGoodsNum()+goodsItem.getGoodsNum());
+                goodsItem.setGoodsNum(cartItemDto.getGoodsNum()+goodsItem.getGoodsNum());
+                cartItemDto.setGoodsItem(goodsItem);
                 cartItemDao.changeItem(cartItemDto);
                 flag = 2;
             }
